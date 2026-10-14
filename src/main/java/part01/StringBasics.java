@@ -22,11 +22,12 @@ public class StringBasics {
      * @param maxLength The maximum length of the text.
      * @return The truncated text.
      */
+
     public String truncate(String text, int maxLength) {
         // TODO: Fix this method
 
         if (text.length() > maxLength) {
-            text.substring(0, maxLength);
+            text = text.substring(0, maxLength);
         }
         return text;
     }
@@ -41,7 +42,7 @@ public class StringBasics {
     public boolean parseYesOrNo(String text) {
         // FIXME: this seems to always return false, even when the `text` is "yes"
 
-        if (text.toLowerCase() == "yes") {
+        if (text.equalsIgnoreCase("yes")) {
             return true;
         }
         return false;
@@ -61,7 +62,23 @@ public class StringBasics {
      * @return "fizz", "buzz", "fizzbuzz" or the given number as a string.
      */
     public String getFizzBuzz(int number) {
-        return "fizzbuzz"; // TODO: implement this method
+
+        if (!(number % 5 == 0) & number % 3 == 0) {
+            return "fizz";
+        }
+
+        if (number % 5 == 0 & !(number % 3 == 0)) {
+            return "buzz";
+        }
+
+        if (number % 5 == 0 & number % 3 == 0) {
+            return "fizzbuzz"; // TODO: implement this method
+        }
+
+        else {
+            String numero = Integer.toString(number);
+            return numero;
+        }
     }
 
     /**
@@ -80,7 +97,32 @@ public class StringBasics {
      * @return The text centered in a string of the given width: " Java ".
      */
     public String center(String text, int width) {
-        return null; // TODO: implement this method
+
+        int whitespace;
+        Boolean puoli = false;
+
+        if (text.length() < width - 2) {
+            whitespace = width - text.length();
+
+            for (int i = 0; i < whitespace; i++) {
+                if(puoli == false){
+                    text = " " + text;
+                    puoli = true;
+                }
+                else{
+                    text = text + " ";
+                    puoli = false;
+                }
+
+            }
+
+        }
+
+        if (text.length() < width - 1) {
+            text = "" + text;
+        }
+
+        return text; // TODO: implement this method
     }
 
     /**
