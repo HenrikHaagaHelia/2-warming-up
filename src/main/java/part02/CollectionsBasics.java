@@ -1,5 +1,6 @@
 package part02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,17 @@ public class CollectionsBasics {
      * @return The maximum value in the list.
      */
     public int maximum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+
+        int max = numbers.getFirst();
+
+        for (int i = 1; i < numbers.size(); i++) {
+
+            if (max < numbers.get(i)) {
+                max = numbers.get(i);
+            }
+
+        }
+        return max; // TODO: implement this method
     }
 
     /**
@@ -30,7 +41,11 @@ public class CollectionsBasics {
      * @return The sum of all integers in the list.
      */
     public int sum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+        int summa = 0;
+        for (Integer integer : numbers) {
+            summa += integer;
+        }
+        return summa; // TODO: implement this method
     }
 
     /**
@@ -47,7 +62,16 @@ public class CollectionsBasics {
      * @return A new list, where the numbers are multiplied by the given factor.
      */
     public List<Integer> multiply(List<Integer> numbers, int factor) {
-        return null; // TODO: implement this method
+
+        List<Integer> uusiNumbers = new ArrayList<Integer>();
+        for (int i = 0; i < numbers.size(); i++) {
+            int lisattavaLuku = numbers.get(i) * factor;
+
+            uusiNumbers.add(lisattavaLuku);
+
+        }
+
+        return uusiNumbers; // TODO: implement this method
     }
 
     /**
@@ -61,7 +85,16 @@ public class CollectionsBasics {
      * @return A list containing the numbers between the start and end values.
      */
     public List<Integer> range(int start, int end) {
-        return null; // TODO: implement this method
+        List<Integer> rangeInteger = new ArrayList<Integer>();
+        if (start < end) {
+
+            for (int i = start; i < end; i++) {
+                rangeInteger.add(i);
+            }
+
+        }
+
+        return rangeInteger; // TODO: implement this method
     }
 
     /**
@@ -73,7 +106,11 @@ public class CollectionsBasics {
      * @return The concatenated string.
      */
     public String concatenateStrings(List<String> strings) {
-        return ""; // TODO: implement this method
+        String tekstiJono = "";
+        for (String string : strings) {
+            tekstiJono += string;
+        }
+        return tekstiJono; // TODO: implement this method
     }
 
     /**
@@ -85,7 +122,12 @@ public class CollectionsBasics {
      * @return A list containing the lengths of the strings in the input list.
      */
     public List<Integer> getLengths(List<String> strings) {
-        return null; // TODO: implement this method
+
+        List<Integer> lengths = new ArrayList<Integer>();
+        for (String string : strings) {
+            lengths.add(string.length());
+        }
+        return lengths; // TODO: implement this method
     }
 
     /**
@@ -102,9 +144,33 @@ public class CollectionsBasics {
      * @param substring The substring to search for.
      * @return A list containing all the indices where the substring is found at.
      */
+
+    // Tehty vaikeamman kautta todennäköisesti, haluttu samalla oppia algoritmilogiikka!
     public List<Integer> indicesOf(String text, String substring) {
         // You can assume that the given substring is not empty.
+        List<Integer> paikat = new ArrayList<>();
 
-        return null; // TODO: implement this method
+        if (text.contains(substring)) {
+            for (int i = 0; i <= text.length() - substring.length(); i++) {
+
+                for (int j = 0; j < substring.length(); j++) {
+
+                    if (text.charAt(i + j) == substring.charAt(j)) {
+                        if ((j) == substring.length() - 1) {
+                            paikat.add(i);
+                        }
+                    }
+
+                    else {
+                        
+                        break;
+                    }
+
+                }
+            }
+
+        }
+
+        return paikat; // TODO: implement this method
     }
 }
